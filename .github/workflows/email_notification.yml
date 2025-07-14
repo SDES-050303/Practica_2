@@ -21,10 +21,10 @@ jobs:
       with:
         server_address: smtp.gmail.com
         server_port: 465
-        username: tu_correo@gmail.com
+        username: davidelizondo0503@gmail.com
         password: ${{ secrets.MAIL_PASSWORD }}
         subject: Cambios subidos a rama ${{ steps.get_branch.outputs.branch_name }}
-        to: destinatario@gmail.com
-        from: GitHub Actions <tu_correo@gmail.com>
+        to: davidelizondo0503@gmail.com  # <--- Tu correo destino
+        from: GitHub Actions <davidelizondo0503@gmail.com>  # <--- Tu mismo correo remitente
         body: |
           Se han subido cambios a la rama: ${{ steps.get_branch.outputs.branch_name }}
