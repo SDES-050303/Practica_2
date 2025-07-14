@@ -1,0 +1,30 @@
+name: Enviar Notificación por Correo
+
+on:
+  push:
+    branches:
+      - main
+      - feature_a
+      - feature_b
+
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Obtener rama actual
+      id: get_branch
+      run: echo "branch_name=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
+
+    - name: Enviar correo
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: tu_correo@gmail.com
+        password: ${{ secrets.MAIL_PASSWORD }}
+        subject: Cambios subidos a rama ${{ steps.get_branch.outputs.branch_name }}
+        to: destinatario@gmail.com
+        from: GitHub Actions <tu_correo@gmail.com>
+        body: |
+          Se han subido cambios a la rama: ${{ steps.get_branch.outputs.branch_name }}
