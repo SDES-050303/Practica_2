@@ -23,7 +23,7 @@ jobs:
         username: davidelizondo0503@gmail.com
         password: ${{ secrets.MAIL_PASSWORD }}
         subject: Cambios subidos a rama ${{ steps.get_branch.outputs.branch_name }}
-        to: davidelizondo0503@gmail.com
+        to: davidelizondo0503@gmail.com #klndk
         from: GitHub Actions <davidelizondo0503@gmail.com>
         body: |
           Se han subido cambios a la rama: ${{ steps.get_branch.outputs.branch_name }}
